@@ -29,7 +29,7 @@ module "bastion" {
   aws_subnet_az                         = var.public_subnets[0].az
   private_dns                           = var.private_dns
   aws_vpc_id                            = module.base.aws_vpc_id
-  aws_subnet_id                         = module.base.aws_public_subnets[var.public_subnets[0].az].id
+  aws_subnet_id                         = module.base.aws_public_subnet_ids[0]
   aws_default_security_group_default_id = module.base.aws_default_security_group_default_id
   aws_route53_private_id                = module.base.aws_route53_private_id
   aws_iam_policy_s3_mgmt_read_write_arn = module.mgmt.aws_iam_policy_s3_mgmt_read_write_arn
