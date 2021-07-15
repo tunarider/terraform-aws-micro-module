@@ -25,3 +25,11 @@ output "aws_private_db_subnet_ids" {
 output "aws_route53_private_id" {
   value = module.base.aws_route53_private_id
 }
+
+output "aws_key_pair_bastion_key_name" {
+  value = module.bastion.aws_key_pair_bastion_key_name
+}
+
+output "aws_key_pair_default_key_name" {
+  value = module.bastion.aws_key_pair_default_key_name
+}
