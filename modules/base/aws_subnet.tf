@@ -6,12 +6,7 @@ resource "aws_subnet" "public" {
   availability_zone       = each.value.az
   map_public_ip_on_launch = true
 
-  tags = {
-    Provisioner = "Terraform"
-    Project     = title(var.project)
-    Name        = "${title(var.project)}Public-${each.value.az}"
-    Onwer       = title(var.owner)
-  }
+  tags = { Name = "${title(var.project)}Public-${each.value.az}" }
 }
 
 resource "aws_subnet" "private_was" {
