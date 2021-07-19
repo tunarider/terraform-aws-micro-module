@@ -116,8 +116,5 @@ resource "aws_iam_policy" "s3_mgmt_read_write" {
     ]
   })
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = title(var.project) }
-  )
+  tags = { Name = title(var.project) }
 }

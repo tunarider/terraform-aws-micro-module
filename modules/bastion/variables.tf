@@ -30,14 +30,6 @@ variable "aws_route53_private_id" {
   type = string
 }
 
-variable "aws_resource_tags" {
-  type = object({
-    Provisioner = string
-    Project     = string
-    Onwer       = string
-  })
-}
-
 variable "aws_key_pair_bastion_public_key" {
   type = string
 }

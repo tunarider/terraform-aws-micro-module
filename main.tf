@@ -14,13 +14,11 @@ module "base" {
   private_dns         = var.private_dns
   private_was_nat     = var.private_was_nat
   private_db_nat      = var.private_db_nat
-  aws_resource_tags   = local.aws_resource_tags
 }
 
 module "mgmt" {
-  source            = "./modules/mgmt"
-  project           = var.project
-  aws_resource_tags = local.aws_resource_tags
+  source  = "./modules/mgmt"
+  project = var.project
 }
 
 module "bastion" {
@@ -33,7 +31,6 @@ module "bastion" {
   aws_default_security_group_default_id = module.base.aws_default_security_group_default_id
   aws_route53_private_id                = module.base.aws_route53_private_id
   aws_iam_policy_s3_mgmt_read_write_arn = module.mgmt.aws_iam_policy_s3_mgmt_read_write_arn
-  aws_resource_tags                     = local.aws_resource_tags
   aws_key_pair_bastion_public_key       = var.aws_key_pair_bastion_public_key
   aws_key_pair_default_public_key       = var.aws_key_pair_default_public_key
 }

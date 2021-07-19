@@ -2,10 +2,7 @@ resource "aws_iam_instance_profile" "bastion_instance_profile" {
   name = "${title(var.project)}BastionInstanceProfile"
   role = aws_iam_role.bastion_instance_profile.name
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}S3MGMTReadWrite" }
-  )
+  tags = { Name = "${title(var.project)}S3MGMTReadWrite" }
 }
 
 resource "aws_iam_role_policy_attachment" "bastion_instance_profile_s3_mgmt" {

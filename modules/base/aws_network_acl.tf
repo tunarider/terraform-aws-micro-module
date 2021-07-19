@@ -21,10 +21,7 @@ resource "aws_network_acl" "public" {
 
   subnet_ids = values(aws_subnet.public)[*].id
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}Public" }
-  )
+  tags = { Name = "${title(var.project)}Public" }
 }
 
 resource "aws_network_acl" "private_was" {
@@ -50,10 +47,7 @@ resource "aws_network_acl" "private_was" {
 
   subnet_ids = values(aws_subnet.private_was)[*].id
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateWAS" }
-  )
+  tags = { Name = "${title(var.project)}PrivateWAS" }
 }
 
 resource "aws_network_acl" "private_db" {
@@ -79,8 +73,5 @@ resource "aws_network_acl" "private_db" {
 
   subnet_ids = values(aws_subnet.private_db)[*].id
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateDB" }
-  )
+  tags = { Name = "${title(var.project)}PrivateDB" }
 }

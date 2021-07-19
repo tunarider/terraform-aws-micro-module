@@ -3,10 +3,7 @@ resource "aws_eip" "private_was_nat" {
 
   vpc = true
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateWASNAT-${each.value.availability_zone}" }
-  )
+  tags = { Name = "${title(var.project)}PrivateWASNAT-${each.value.availability_zone}" }
 }
 
 resource "aws_eip" "private_db_nat" {
@@ -14,8 +11,5 @@ resource "aws_eip" "private_db_nat" {
 
   vpc = true
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateDBNAT-${each.value.availability_zone}" }
-  )
+  tags = { Name = "${title(var.project)}PrivateDBNAT-${each.value.availability_zone}" }
 }

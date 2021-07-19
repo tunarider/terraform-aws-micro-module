@@ -15,8 +15,5 @@ resource "aws_default_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}Default" }
-  )
+  tags = { Name = "${title(var.project)}Default" }
 }

@@ -22,10 +22,7 @@ resource "aws_subnet" "private_was" {
   availability_zone       = each.value.az
   map_public_ip_on_launch = false
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateWAS-${each.value.az}" }
-  )
+  tags = { Name = "${title(var.project)}PrivateWAS-${each.value.az}" }
 }
 
 resource "aws_subnet" "private_db" {
@@ -36,8 +33,5 @@ resource "aws_subnet" "private_db" {
   availability_zone       = each.value.az
   map_public_ip_on_launch = false
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateDB-${each.value.az}" }
-  )
+  tags = { Name = "${title(var.project)}PrivateDB-${each.value.az}" }
 }

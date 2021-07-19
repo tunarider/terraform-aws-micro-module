@@ -13,9 +13,6 @@ resource "aws_iam_policy" "ec2_describe_tags" {
     ]
   })
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}EC2DescribeTags" }
-  )
+  tags = { Name = "${title(var.project)}EC2DescribeTags" }
 }
 

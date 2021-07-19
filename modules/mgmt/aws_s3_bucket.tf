@@ -12,8 +12,5 @@ resource "aws_s3_bucket" "mgmt" {
   bucket = "${lower(var.project)}-mgmt-${random_string.s3_mgmt_id.result}"
   acl    = "private"
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = title(var.project) }
-  )
+  tags = { Name = title(var.project) }
 }

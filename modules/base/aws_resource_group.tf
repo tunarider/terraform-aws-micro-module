@@ -20,8 +20,5 @@ resource "aws_resourcegroups_group" "main" {
     type = "TAG_FILTERS_1_0"
   }
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = title(var.project) }
-  )
+  tags = { Name = title(var.project) }
 }

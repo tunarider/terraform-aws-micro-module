@@ -8,10 +8,7 @@ resource "aws_route_table" "public" {
     gateway_id = aws_internet_gateway.main.id
   }
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}Public-${each.value.az}" }
-  )
+  tags = { Name = "${title(var.project)}Public-${each.value.az}" }
 }
 
 resource "aws_route_table_association" "public" {
@@ -34,10 +31,7 @@ resource "aws_route_table" "private_was" {
     }
   }
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateWAS-${each.value.az}" }
-  )
+  tags = { Name = "${title(var.project)}PrivateWAS-${each.value.az}" }
 }
 
 resource "aws_route_table_association" "private_was" {
@@ -60,10 +54,7 @@ resource "aws_route_table" "private_db" {
     }
   }
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateDB-${each.value.az}" }
-  )
+  tags = { Name = "${title(var.project)}PrivateDB-${each.value.az}" }
 }
 
 resource "aws_route_table_association" "private_db" {

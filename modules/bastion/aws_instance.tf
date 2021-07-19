@@ -15,16 +15,10 @@ resource "aws_instance" "bastion" {
   subnet_id                   = var.aws_subnet_id
   associate_public_ip_address = true
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}Bastion" }
-  )
+  tags = { Name = "${title(var.project)}Bastion" }
 
   root_block_device {
-    tags = merge(
-      var.aws_resource_tags,
-      { Name = "${title(var.project)}BastionRoot" }
-    )
+    tags = { Name = "${title(var.project)}BastionRoot" }
   }
 }
 

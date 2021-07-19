@@ -17,8 +17,5 @@ resource "aws_security_group" "public_ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PublicSSH" }
-  )
+  tags = { Name = "${title(var.project)}PublicSSH" }
 }

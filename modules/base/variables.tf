@@ -46,11 +46,3 @@ variable "private_was_nat" {
 variable "private_db_nat" {
   type = bool
 }
-
-variable "aws_resource_tags" {
-  type = object({
-    Provisioner = string
-    Project     = string
-    Onwer       = string
-  })
-}

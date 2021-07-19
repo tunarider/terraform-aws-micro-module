@@ -4,10 +4,7 @@ resource "aws_nat_gateway" "private_was" {
   allocation_id = aws_eip.private_was_nat[each.value.availability_zone].id
   subnet_id     = each.value.id
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateWASNAT-${each.value.availability_zone}" }
-  )
+  tags = { Name = "${title(var.project)}PrivateWASNAT-${each.value.availability_zone}" }
 }
 
 resource "aws_nat_gateway" "private_db" {
@@ -16,8 +13,5 @@ resource "aws_nat_gateway" "private_db" {
   allocation_id = aws_eip.private_db_nat[each.value.availability_zone].id
   subnet_id     = each.value.id
 
-  tags = merge(
-    var.aws_resource_tags,
-    { Name = "${title(var.project)}PrivateDBNAT-${each.value.availability_zone}" }
-  )
+  tags = { Name = "${title(var.project)}PrivateDBNAT-${each.value.availability_zone}" }
 }
