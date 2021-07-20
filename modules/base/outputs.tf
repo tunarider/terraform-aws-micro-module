@@ -18,6 +18,6 @@ output "aws_private_db_subnet_ids" {
   value = values(aws_subnet.private_db)[*].id
 }
 
-output "aws_route53_private_id" {
+output "aws_route53_private_zone_id" {
   value = aws_route53_zone.private.id
 }

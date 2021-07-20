@@ -26,7 +26,7 @@ variable "aws_default_security_group_default_id" {
   type = string
 }
 
-variable "aws_route53_private_id" {
+variable "aws_route53_private_zone_id" {
   type = string
 }
 

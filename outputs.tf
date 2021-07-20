@@ -22,8 +22,8 @@ output "aws_private_db_subnet_ids" {
   value = module.base.aws_private_db_subnet_ids
 }
 
-output "aws_route53_private_id" {
-  value = module.base.aws_route53_private_id
+output "aws_route53_private_zone_id" {
+  value = module.base.aws_route53_private_zone_id
 }
 
 output "aws_key_pair_bastion_key_name" {
