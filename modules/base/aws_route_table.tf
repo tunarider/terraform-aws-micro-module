@@ -1,6 +1,4 @@
 resource "aws_route_table" "public" {
-  for_each = { for subnet in var.public_subnets : subnet.az => subnet }
-
   vpc_id = aws_vpc.main.id
 
   route {
@@ -8,14 +6,14 @@ resource "aws_route_table" "public" {
     gateway_id = aws_internet_gateway.main.id
   }
 
-  tags = { Name = "${title(var.project)}Public-${each.value.az}" }
+  tags = { Name = "${title(var.project)}Public" }
 }
 
 resource "aws_route_table_association" "public" {
   for_each = { for subnet in var.public_subnets : subnet.az => subnet }
 
   subnet_id      = aws_subnet.public[each.value.az].id
-  route_table_id = aws_route_table.public[each.value.az].id
+  route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table" "private_was" {
@@ -47,7 +45,7 @@ resource "aws_route_table" "private_db" {
   vpc_id = aws_vpc.main.id
 
   dynamic "route" {
-    for_each = var.private_was_nat ? [1] : []
+    for_each = var.private_db_nat ? [1] : []
     content {
       cidr_block     = "0.0.0.0/0"
       nat_gateway_id = aws_nat_gateway.private_db[each.value.az].id
