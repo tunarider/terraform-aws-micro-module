@@ -21,3 +21,7 @@ output "aws_private_db_subnet_ids" {
 output "aws_route53_private_zone_id" {
   value = aws_route53_zone.private.id
 }
+
+output "aws_public_route_table_id" {
+  value = aws_route_table.public.id
+}

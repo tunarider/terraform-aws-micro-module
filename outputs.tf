@@ -33,3 +33,7 @@ output "aws_key_pair_bastion_key_name" {
 output "aws_key_pair_default_key_name" {
   value = module.bastion.aws_key_pair_default_key_name
 }
+
+output "aws_public_route_table_id" {
+  value = module.base.aws_public_route_table_id
+}
